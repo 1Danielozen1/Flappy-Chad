@@ -3,6 +3,7 @@ import random
 from pygame import mixer
 import numpy as np
 import sys
+import platform
 import serial, time
 import threading, queue
 import time
@@ -11,24 +12,34 @@ import time
 Author: Di Mantua Daniele
 Game: Flappy Chad
 """
-
 a = queue.Queue()
 b = queue.Queue()
 
 class Read_Microbit(threading.Thread):
-    def __init__(self,port):
+    def __init__(self):
         threading.Thread.__init__(self)
         self._running = True
-        self.port = port
+        #self.port = port
       
     def terminate(self):
         self._running = False
         
     def run(self):
         #serial config
-        port = self.port
-        s = serial.Serial(port)
+        #port = self.port
+        if platform.system() == "Windows":
+            for i in range(0,100):
+                try:
+                    port = "COM"+str(i)
+                    s = serial.Serial(port)
+                except:
+                    pass
+        else:
+            porta = input("Inserisci il nome della porta: ")
+            s = serial.Serial(port)
+
         s.baudrate = 115200
+        
         while self._running:
             data = s.readline().decode()
             acc = [x for x in data[1:-3].split(", ")]
@@ -37,8 +48,8 @@ class Read_Microbit(threading.Thread):
             b.put(acc[1])
             time.sleep(0.01)
 
-porta = input("Inserisci il nome della porta: ")
-rm = Read_Microbit(porta)          
+#porta = input("Inserisci il nome della porta: ")
+rm = Read_Microbit()          
 print("TASTIERA:\n-'W' fa saltare il personaggio\n-'Space bar' fa ricominciare il gioco una volta che si ha perso\n\nMICROBIT:\n-'pultante A' fa saltare il personaggio\n-'pulsante B' fa ricominciare il gioco una volta che si ha perso\n- Premere contemporaneamente i pulsalti fanno chiudere il gioco")
 
 pygame.init()
