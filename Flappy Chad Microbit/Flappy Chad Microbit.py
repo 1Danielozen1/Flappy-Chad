@@ -249,19 +249,14 @@ while True:
         t.controllo(personaggio,personaggiox,personaggioy)
     
     #Questi if mi servono per incrementare il punteggio.
-    if incrementa != True:
-        for t in spunt:
-            if t.incrementa(personaggio,personaggiox) == True:
-                incrementa = True
-                break
-    if incrementa != False:
-        incrementa = False
-        for t in spunt:
-            if t.incrementa(personaggio,personaggiox):
-                incrementa=True
-                break
-            if incrementa == False:
-                punti += 1
+    incrementa_prec = incrementa
+    for t in spunt:
+        if t.incrementa(personaggio,personaggiox) == True:
+            incrementa = True
+            break
+        else: incrementa = False
+    if incrementa == True and incrementa_prec == False:
+        punti += 1
 
     #Controlla se il personaggio ho toccato il pavimento
     if personaggioy > 380 or personaggioy < 0:
