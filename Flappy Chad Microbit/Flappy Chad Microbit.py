@@ -35,7 +35,7 @@ class Read_Microbit(threading.Thread):
                 except:
                     pass
         else:
-            porta = input("Inserisci il nome della porta: ")
+            port = input("Inserisci il nome della porta: ")
             s = serial.Serial(port)
 
         s.baudrate = 115200
