@@ -39,7 +39,7 @@ class Read_Microbit(threading.Thread):
             s = serial.Serial(port)
 
         s.baudrate = 115200
-        
+
         while self._running:
             data = s.readline().decode()
             acc = [x for x in data[1:-3].split(", ")]
@@ -55,12 +55,12 @@ print("TASTIERA:\n-'W' fa saltare il personaggio\n-'Space bar' fa ricominciare i
 pygame.init()
 
 #Carico le immagini
-sfondo = pygame.image.load('immagini/sfondo.jpg')
-personaggio = pygame.image.load('immagini/GigaChad.png')
-pavimento = pygame.image.load('immagini/pavimento.png')
-f = pygame.image.load('immagini/gameover.png')
-titolo = pygame.image.load('immagini/titolo.png')
-spunt_giu = pygame.image.load('immagini/spuntone.png')
+sfondo = pygame.image.load('./immagini/sfondo.jpg')
+personaggio = pygame.image.load('./immagini/GigaChad.png')
+pavimento = pygame.image.load('./immagini/pavimento.png')
+f = pygame.image.load('./immagini/gameover.png')
+titolo = pygame.image.load('./immagini/titolo.png')
+spunt_giu = pygame.image.load('./immagini/spuntone.png')
 spunt_su = pygame.transform.flip(spunt_giu,False,True)  
 
 #Costanti
@@ -112,7 +112,7 @@ class spunt_class:
 
 def F_to_pay_respect():
     mixer.music.stop() #ferma la musica
-    mixer.music.load('suoni\Dark_Souls.wav') #musica della morte
+    mixer.music.load('./suoni/Dark_Souls.wav') #musica della morte
     mixer.music.set_volume(0.5)
     mixer.music.play(1)
     SCHERMO.blit(f, (0,0))
@@ -129,7 +129,7 @@ def F_to_pay_respect():
             if (acc2 == "True" and acc == "False"):
                 inizializza_glob()
                 mixer.music.stop()
-                mixer.music.load('suoni\gigachad_8-bit.wav') #riparte la musica
+                mixer.music.load('./suoni/gigachad_8-bit.wav') #riparte la musica
                 mixer.music.set_volume(0.3)
                 mixer.music.play(0)
                 ric = True
@@ -145,7 +145,7 @@ def F_to_pay_respect():
                 and event.key == pygame.K_SPACE ):
                 inizializza_glob()
                 mixer.music.stop()
-                mixer.music.load('suoni\gigachad_8-bit.wav') #riparte la musica
+                mixer.music.load('./suoni/gigachad_8-bit.wav') #riparte la musica
                 mixer.music.set_volume(0.3)
                 mixer.music.play(0)
                 ric = True
@@ -216,7 +216,7 @@ while ok == False:
     clock()
 
 #Parte la musica appena inizia la prima partita
-mixer.music.load('suoni\gigachad_8-bit.wav')
+mixer.music.load('./suoni/gigachad_8-bit.wav')
 mixer.music.set_volume(0.3)
 mixer.music.play(0)
 
