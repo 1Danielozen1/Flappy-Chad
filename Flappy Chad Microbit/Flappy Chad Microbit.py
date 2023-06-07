@@ -60,7 +60,7 @@ personaggio = pygame.image.load('./immagini/GigaChad.png')
 pavimento = pygame.image.load('./immagini/pavimento.png')
 f = pygame.image.load('./immagini/gameover.png')
 titolo = pygame.image.load('./immagini/titolo.png')
-spunt_giu = pygame.image.load('./immagini/spuntone.png')
+spunt_giu = pygame.image.load('./immagini/Spuntone.png')
 spunt_su = pygame.transform.flip(spunt_giu,False,True)  
 
 #Costanti
