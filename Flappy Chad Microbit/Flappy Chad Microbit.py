@@ -6,6 +6,7 @@ import sys
 import serial, time
 import threading, queue
 import time
+
 """
 Author: Di Mantua Daniele
 Game: Flappy Chad
@@ -59,6 +60,8 @@ FONT = pygame.font.SysFont('century', 30,bold=True)
 SCRITTA = FONT.render("PUNTEGGIO:",1,(255,255,255))
 SCRITTA_IN = FONT.render("PREMI",1,(0,0,0))
 SCRITTA_IN2 = FONT.render("PER",1,(0,0,0))
+O = FONT.render("O",1,(0,0,0))
+PULSANTE = FONT.render("'pulsante A'",1,(255,0,0))
 SCRITTA_IN3 = FONT.render("INIZIARE",1,(0,0,0))
 W = FONT.render("'w'",1,(255,0,0))
 diff = 300
@@ -171,10 +174,12 @@ rm.start()
 """MENU INIZIALE"""
 while ok == False:
     SCHERMO.blit(sfondo, (0,0))
-    SCHERMO.blit(SCRITTA_IN,(50,200))
-    SCHERMO.blit(W,(190,200))
-    SCHERMO.blit(SCRITTA_IN2,(100,250))
-    SCHERMO.blit(SCRITTA_IN3,(50,300))
+    SCHERMO.blit(SCRITTA_IN,(40,180))
+    SCHERMO.blit(W,(160,180))
+    SCHERMO.blit(O,(210,180))
+    SCHERMO.blit(PULSANTE,(60,220))
+    SCHERMO.blit(SCRITTA_IN2,(100,260))
+    SCHERMO.blit(SCRITTA_IN3,(65,300))
     SCHERMO.blit(titolo,(50,10))
     try:
         acc = a.get(block=False)
