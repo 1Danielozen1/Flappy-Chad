@@ -108,8 +108,7 @@ def F_to_pay_respect():
     visualizzaPt = FONT.render(str(punti),1,(255,255,255))
     SCHERMO.blit(visualizzaPt,(40,100))
     SCHERMO.blit(SCRITTA,(40,50))
-    pygame.display.update()
-    pygame.time.Clock().tick(FPS)
+    clock()
     ric = False
     while ric != True:
 
@@ -165,6 +164,9 @@ def inizializza_glob():
     spunt.append(spunt_class())
     incrementa = False
 
+def clock():
+    pygame.display.update()
+    pygame.time.Clock().tick(FPS)
 
 #Inizializzo tutte le variabili globali
 inizializza_glob()
@@ -200,8 +202,7 @@ while ok == False:
             if ev.type == pygame.QUIT:
                 pygame.quit()
                 
-    pygame.display.update()
-    pygame.time.Clock().tick(FPS)
+    clock()
 
 #Parte la musica appena inizia la prima partita
 mixer.music.load('suoni\gigachad_8-bit.wav')
@@ -264,5 +265,4 @@ while True:
 
     #Aggiornamento schermo
     disegna_oggetti()
-    pygame.display.update()
-    pygame.time.Clock().tick(FPS)
+    clock()
