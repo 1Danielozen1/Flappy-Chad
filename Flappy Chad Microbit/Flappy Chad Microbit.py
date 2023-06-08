@@ -34,12 +34,19 @@ class Read_Microbit(threading.Thread):
                     s = serial.Serial(port)
                 except:
                     pass
+        elif platform.system() == "Linux":
+
+            for i in range(0,50):
+                try:
+                    port = "/dev/ttyACM"+str(i)
+                    s = serial.Serial(port)
+                except:
+                    pass
         else:
             port = input("Inserisci il nome della porta: ")
             s = serial.Serial(port)
 
         s.baudrate = 115200
-
         while self._running:
             data = s.readline().decode()
             acc = [x for x in data[1:-3].split(", ")]
