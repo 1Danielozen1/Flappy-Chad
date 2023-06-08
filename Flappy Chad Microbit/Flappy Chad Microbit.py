@@ -199,8 +199,9 @@ while ok == False:
         acc2 = b.get(block=False)
         if (acc == "True" and acc2 == "False"):
             ok = True
-        elif (acc2 == "True" and acc == "True"):  
+        elif (acc2 == "True" and acc == "True"): 
             pygame.quit()
+            
         a.task_done()
         b.task_done()
     except:
