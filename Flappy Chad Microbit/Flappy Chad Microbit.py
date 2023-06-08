@@ -67,7 +67,7 @@ spunt_su = pygame.transform.flip(spunt_giu,False,True)
 SCHERMO = pygame.display.set_mode((288,512)) #288,512
 FPS = 60
 VELOCITA = 2
-FONT = pygame.font.SysFont('century', 30,bold=True)
+FONT = pygame.font.Font('./Font/Century Bold.ttf', 30)
 SCRITTA = FONT.render("PUNTEGGIO:",1,(255,255,255))
 SCRITTA_IN = FONT.render("PREMI",1,(0,0,0))
 SCRITTA_IN2 = FONT.render("PER",1,(0,0,0))
@@ -201,7 +201,7 @@ while ok == False:
             ok = True
         elif (acc2 == "True" and acc == "True"): 
             pygame.quit()
-            
+
         a.task_done()
         b.task_done()
     except:
