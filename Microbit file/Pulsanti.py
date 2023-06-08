@@ -52,5 +52,4 @@ while True:
                                '80008'))
         else:
             display.show(mostra())
-        music.set_tempo(bpm=500)
-        music.play(['a'])
+    sleep(100)
