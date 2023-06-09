@@ -1,6 +1,6 @@
 from microbit import *
 import music
-set_volume(160)
+set_volume(0)
 
 cont = 0
 def mostra():
@@ -52,4 +52,6 @@ while True:
                                '80008'))
         else:
             display.show(mostra())
-    sleep(100)
+        music.set_tempo(bpm=500)
+        music.play('a')
+        
