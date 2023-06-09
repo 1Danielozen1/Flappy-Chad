@@ -141,6 +141,8 @@ def F_to_pay_respect():
                 mixer.music.play(0)
                 ric = True
             elif(acc2 == "True" and acc == "True"):
+                rm._running = False
+                rm.join()
                 pygame.quit()
             a.task_done()
             b.task_done()
@@ -157,7 +159,9 @@ def F_to_pay_respect():
                 mixer.music.play(0)
                 ric = True
             if event.type == pygame.QUIT:
-                pygame.quit() 
+                rm._running = False
+                rm.join()
+                pygame.quit()
 
 def disegna_oggetti():
     SCHERMO.blit(sfondo, (0,0))
@@ -207,6 +211,8 @@ while ok == False:
         if (acc == "True" and acc2 == "False"):
             ok = True
         elif (acc2 == "True" and acc == "True"): 
+            rm._running = False
+            rm.join()
             pygame.quit()
 
         a.task_done()
@@ -219,6 +225,8 @@ while ok == False:
               and (ev.key == pygame.K_w or ev.key == pygame.K_SPACE))):
                     ok = True
             if ev.type == pygame.QUIT:
+                rm._running = False
+                rm.join()
                 pygame.quit()
                 
     clock()
@@ -243,7 +251,10 @@ while True:
         if (acc == "True" and acc2 == "False"):
             personaggio_vely = -9.3
         elif (acc2 == "True" and acc == "True"):  
+            rm._running = False
+            rm.join()
             pygame.quit()
+
         a.task_done()
         b.task_done()
     except:
@@ -257,6 +268,8 @@ while True:
             and event.key == pygame.K_w):
             personaggio_vely = -10 #mi permette di far rimbalzare in alto il personaggio
         if event.type == pygame.QUIT:
+            rm._running = False
+            rm.join()
             pygame.quit()
 
 
